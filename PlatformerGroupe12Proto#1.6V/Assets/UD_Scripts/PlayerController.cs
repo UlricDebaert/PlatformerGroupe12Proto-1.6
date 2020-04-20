@@ -463,6 +463,7 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded)
         {
             movingPlatformGoesUp = false;
+            haveJump = false;
         }
 
         if (isTouchingWall || isTouchingObstacle)

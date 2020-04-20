@@ -6,6 +6,11 @@ public class PlayerScore : MonoBehaviour
 {
     public float score = 0f;
 
+    private void Start()
+    {
+        score = 0f;
+    }
+
     void Update()
     {
         

@@ -84,6 +84,7 @@
     <Compile Include="Assets\UD_Scripts\PlayerHacking.cs" />
     <Compile Include="Assets\UD_Scripts\PlayerInteract.cs" />
     <Compile Include="Assets\UD_Scripts\PlayerScore.cs" />
+    <Compile Include="Assets\UD_Scripts\ShowScore.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Rubika/1ère Année/Versionning/PlatformerGroupe12Proto#1.6/PlatformerGroupe12Proto#1.6V/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
