@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckIfWallSliding()
     {
-        if(isTouchingWall && movementInputDirection != facingDirection && rb.velocity.y < 0)
+        if(isTouchingWall /*&& movementInputDirection != facingDirection*/ && rb.velocity.y < 0)
         {
             isWallSliding = true;
         }
