@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     private bool isOnObstacle = false;
     private bool startFreezeMoveInput = false;
     private bool freezeMoveInput = false;
+    private bool isFalling;
 
     private bool haveJump;
     private bool haveDoubleJump;
@@ -138,6 +139,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isGrounded", isGrounded);
         anim.SetFloat("yVelocity", rb.velocity.y);
         anim.SetBool("isTouchingWall", isOnObstacle);
+        anim.SetBool("isFalling", isFalling);
     }
 
     private void CheckInput()
@@ -436,7 +438,7 @@ public class PlayerController : MonoBehaviour
             haveDoubleJump = true;
             haveJump = true;
         }
-        else if(isTouchingWall)
+        else if(isTouchingWall && isFalling)
         {
             canWallJump = true;
             isJumping = false;
@@ -471,6 +473,12 @@ public class PlayerController : MonoBehaviour
             isOnObstacle = true;
         }
         else isOnObstacle = false;
+
+        if (rb.velocity.y < -0.01f)
+        {
+            isFalling = true;
+        }
+        else isFalling = false;
     }
 
     /*IEnumerator Falled()
@@ -507,6 +515,17 @@ public class PlayerController : MonoBehaviour
         {
             isOnMovingPlatform = true;
             transform.parent = other.gameObject.transform;
+            isGrounded = true;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("MovingPlatform"))
+        {
+            isOnMovingPlatform = true;
+            transform.parent = other.gameObject.transform;
+            isGrounded = true;
         }
     }
 

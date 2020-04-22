@@ -35,7 +35,11 @@ public class Hacked : MonoBehaviour
         CheckHack();
         Timer();
         CheckExplosion();
-        Disappear();
+
+        if ((otherIA1 != null) || (otherIA2 != null) || (otherIA3 != null) || (otherIA4 != null))
+        {
+            Disappear();
+        }
     }
 
     void CheckHack()
